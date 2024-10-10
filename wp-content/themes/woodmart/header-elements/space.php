@@ -1,1 +1,0 @@
-<div class="whb-space-element <?php echo esc_attr( $params['css_class'] ); ?>" style="width:<?php echo esc_attr( $params['width'] ); ?>px;"></div>
