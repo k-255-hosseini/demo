@@ -1,0 +1,125 @@
+// ------------------------------------------------------------------------------------------------
+// POST TYPE
+// ------------------------------------------------------------------------------------------------
+
+@if $general {
+
+	// ------------------------------------------
+	// SINGLE PRODUCT OPTIONS
+	// ------------------------------------------
+
+	//**** FREQUENTLY BOUGHT TOGETHER ****//
+
+	.xts-bought-together {
+		position: relative;
+
+		:is(
+		tbody,
+		.xts-bought-together-controls) {
+			z-index: 999999;
+			transition: all .3s ease;
+		}
+
+		&:before {
+			position: absolute;
+			top: calc(50% - 15px);
+			left: calc(50% - 15px);
+			z-index: 999999;
+			visibility: hidden;
+			opacity: 0;
+
+			@include loader(30px);
+		}
+
+		&.xts-loading {
+
+			:is(
+			tbody,
+			.xts-bought-together-controls) {
+				opacity: .5;
+				pointer-events: none;
+			}
+
+			&:before {
+				visibility: visible;
+				opacity: 1;
+				transition: all .3s ease;
+
+				@include act-loader;
+			}
+		}
+	}
+
+	.xts-bought-together-controls {
+
+		a {
+			display: inline-block;
+			margin-top: 10px;
+			margin-inline-start: 10px;
+		}
+
+		.select2-container--xts {
+			// --xts-input-width: 450px;
+
+			.select2-selection__arrow {
+
+				&:before {
+					top: 5px !important;
+				}
+			}
+		}
+
+		.form-field {
+
+			.select2-container--xts {
+				max-width: 450px !important;
+			}
+		}
+
+		.button {
+			margin-top: 15px;
+			margin-inline-start: 10px;
+		}
+	}
+
+	//**** XTS METABOXES ****//
+
+	.xts-metaboxes {
+
+		.xts-section {
+			margin-bottom: -40px;
+		}
+
+		.xts-set-btn-img {
+			flex-basis: 80px;
+		}
+
+		.postbox & {
+			box-shadow: none;
+		}
+	}
+
+	body.block-editor-page {
+
+		.xts-metaboxes {
+
+			.xts-box-content {
+				padding: 0;
+			}
+		}
+	}
+
+	body:not(.block-editor-page) {
+
+		.postbox {
+
+			.xts-metaboxes {
+
+				.xts-box-content {
+					padding: 12px 6px 6px 6px;
+				}
+			}
+		}
+	}
+
+} // END IF
